@@ -28,7 +28,9 @@
         "ts": "never",
         "tsx": "never"
       }
-    ]
+    ],
+    "eslint-plugin-import/prefer-default-export": "off",
+    "import/prefer-default-export": "off"
   },
   "settings": {
     "import/resolver": {

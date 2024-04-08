@@ -1,23 +1,15 @@
 import React from "react";
-import {
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./Home/Home";
-import Signup from "./Signin/Signup";
+import Signup from "./Signup/Signup";
 import Login from "./Login/Login";
 
 function Router() {
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path="/" element={<Home />}>
-        <Route path="Signup" element={<Signup />} />
-        <Route path="Login" element={<Login />} />
-      </Route>,
-    ),
-  );
+  const router = createBrowserRouter([
+    { path: "/", element: <Home /> },
+    { path: "/signup", element: <Signup /> },
+    { path: "/login", element: <Login /> },
+  ]);
 
   return <RouterProvider router={router} />;
 }

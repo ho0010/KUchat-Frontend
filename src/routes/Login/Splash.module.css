@@ -1,0 +1,10 @@
+.root {
+  background-color: #046b40;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+.ctn{
+  justify-content: center;
+  align-items: center;
+}

@@ -7,7 +7,7 @@ function Splash() {
     <div className={styles.root}>
       <div className={styles.ctn}>
         <img src={KUchatImg} alt="KUchatImg" />
-        Splash
+        <div className={styles.splashText}>KU chat</div>
       </div>
     </div>
   );

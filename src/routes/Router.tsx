@@ -12,7 +12,8 @@ function Router() {
       element: <App />,
       children: [
         { path: "", element: <Home /> },
-        { path: "/signup", element: <Signup /> },
+        { path: "/signup", element: <Signup />,
+ },
         { path: "/login", element: <Login /> },
       ],
     },

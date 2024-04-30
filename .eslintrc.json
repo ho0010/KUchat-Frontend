@@ -20,6 +20,7 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
+    "react/button-has-type": "off",
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "import/extensions": [
       "error",

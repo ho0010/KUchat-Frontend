@@ -2,14 +2,14 @@
   "env": {
     "browser": true,
     "es2021": true
-    
   },
   "extends": [
     "plugin:react/recommended",
     "airbnb",
     "prettier",
     "prettier/prettier",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:react-hook-form/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -19,9 +19,8 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint","react-hook-form"],
   "rules": {
-
     "react/button-has-type": "off",
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "import/extensions": [
@@ -39,11 +38,12 @@
       ] }
     ],
     "eslint-plugin-import/prefer-default-export": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "react-hook-form/destructuring-formstate": "error"
   },
   "settings": {
     "import/resolver": {
       "typescript": {}
     }
-  },
+  }
 }

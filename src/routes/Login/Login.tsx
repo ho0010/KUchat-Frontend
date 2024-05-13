@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Splash from "./Splash";
 import styles from "./Login.module.css";
-import KUchatImg from "../../assets/img/KUchatImg.svg";
+import KUchat_Logo from "../../assets/img/KUchat_logo.svg";
 
 function Login() {
   const [showSplash, setShowSplash] = useState(true);
@@ -21,7 +21,7 @@ function Login() {
   ) : (
     <div className={styles.root}>
       <div className={styles.ctn}>
-        <img src={KUchatImg} alt="KU chat logo" />
+        <img src={KUchat_Logo} alt="KU chat logo" />
         <div className={styles.splashText}>KU chat</div>
         <button onClick={handleClick}>d</button>
       </div>

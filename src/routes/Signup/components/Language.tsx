@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+
 const Language = () => {
-  return <div></div>;
+  return <div>Language</div>;
 };
 
 export default Language;

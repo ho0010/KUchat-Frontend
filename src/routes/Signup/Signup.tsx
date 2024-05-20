@@ -68,6 +68,8 @@ const Signup = () => {
       </div>
       <div className={styles.body}>
         <div>{steps[step]}</div>
+      </div>
+      <div className={styles.bottom}>
         <button className={styles.confirmBtn}>확인</button>
       </div>
     </div>

@@ -12,8 +12,8 @@
 .body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    height: 85vh;
 }
 
 .confirmBtn{
@@ -27,4 +27,11 @@
     border: none;
     font-family: Pretendard;
 font-size: 14px;
+}
+
+.bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

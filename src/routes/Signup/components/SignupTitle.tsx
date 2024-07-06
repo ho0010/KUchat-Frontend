@@ -1,0 +1,17 @@
+import React from "react";
+
+interface SignupTitleProps {
+  Title: string;
+}
+
+const SignupTitle: React.FC<SignupTitleProps> = ({ Title }) => {
+  const titleStyle: React.CSSProperties = {
+    fontSize: "24px",
+    fontWeight: 700,
+    marginBottom: "36px",
+  };
+
+  return <div style={titleStyle}>{Title}</div>;
+};
+
+export default SignupTitle;

@@ -2,7 +2,7 @@ import React from "react";
 import left_arrow from "../assets/img/left_arrow.svg";
 import { useNavigate } from "react-router-dom";
 
-const header = () => {
+const Header = () => {
   const navigate = useNavigate();
 
   return (
@@ -13,4 +13,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;

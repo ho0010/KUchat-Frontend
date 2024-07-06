@@ -32,12 +32,11 @@ const Signup = () => {
     Birth: <Birth />,
     SignupComplete: <SignupComplete />,
   };
-
-  const backBtnEnabled = (step: Step) => {
-    if (step === "Language" || step === "SignupComplete") {
-      return "false";
+  const backBtnEnabled = (step: Step): boolean => {
+    if (step == "Language" || step == "SignupComplete") {
+      return false;
     } else {
-      return "true";
+      return true;
     }
   };
 
@@ -63,7 +62,11 @@ const Signup = () => {
     <div className={styles.root}>
       <div className={styles.backBtn}>
         {backBtnEnabled(step) && (
-          <img src={left_arrow} onClick={handleBackClick} />
+          <img
+            src={left_arrow}
+            onClick={handleBackClick}
+            style={{ visibility: backBtnEnabled(step) ? "visible" : "hidden" }}
+          />
         )}
       </div>
       <div className={styles.body}>

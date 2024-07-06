@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import left_arrow from "../../assets/img/left_arrow.svg";
 import Language from "./components/Language";
 import Nation from "./components/Nation";
@@ -23,6 +23,11 @@ export type Step =
 const Signup = () => {
   const [step, setStep] = useState<Step>("Language");
   const [validSteps, setValidSteps] = useState<{ [key in Step]?: boolean }>({});
+
+  useEffect(() => {
+    // StudentId 단계의 유효성을 항상 true로 설정
+    setStepValidity("StudentId", true);
+  }, []);
 
   const setStepValidity = (step: Step, isValid: boolean) => {
     setValidSteps((prev) => ({ ...prev, [step]: isValid }));

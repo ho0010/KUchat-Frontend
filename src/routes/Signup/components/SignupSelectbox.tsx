@@ -18,6 +18,7 @@ const SignupSelectbox: React.FC<SignupSelectboxProps> = ({
     <div>
       <div style={{ marginBottom: "16px" }}>{title}</div>
       <div style={{ width: "300px" }}>
+        {" "}
         <Select
           placeholder="선택해주세요"
           options={options}

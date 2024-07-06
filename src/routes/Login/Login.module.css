@@ -5,7 +5,7 @@
   font-weight: 600;
   font-size: 36px;
 }
-.ctn{
+.ctn {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -13,8 +13,8 @@
   transform: translateY(calc(-5%));
   flex-direction: column;
 }
-.splashText{
+.splashText {
   margin-top: 20px;
   color: #046b40;
-font-family: 'Baloo Da 2', cursive;
+  font-family: "Baloo Da 2", cursive;
 }

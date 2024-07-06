@@ -5,7 +5,6 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:prettier/recommended",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -19,10 +18,14 @@
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": [
-      "error"
-  ],
-  "arrow-body-style":"off",
-  "prefer-arrow-callback":"off"
+      "error",
+      {
+        "endOfLine": "auto",
+        "trailingComma": "all"
+      }
+    ],
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off"
   },
   "settings": {
     "import/resolver": {
@@ -40,5 +43,5 @@
     "expect": true,
     "jsdom": true,
     "JSX": true
-}
+  }
 }

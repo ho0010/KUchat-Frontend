@@ -10,7 +10,7 @@ import Birth from "./components/Birth";
 import SignupComplete from "./components/SignupComplete";
 import styles from "./Signup.module.css";
 
-type Step =
+export type Step =
   | "Language"
   | "Nation"
   | "Name"
@@ -22,8 +22,14 @@ type Step =
 
 const Signup = () => {
   const [step, setStep] = useState<Step>("Language");
+  const [validSteps, setValidSteps] = useState<{ [key in Step]?: boolean }>({});
+
+  const setStepValidity = (step: Step, isValid: boolean) => {
+    setValidSteps((prev) => ({ ...prev, [step]: isValid }));
+  };
+
   const steps: Record<Step, JSX.Element> = {
-    Language: <Language />,
+    Language: <Language setStepValidity={setStepValidity} />,
     Nation: <Nation />,
     Name: <Name />,
     StudentId: <StudentId />,
@@ -58,6 +64,26 @@ const Signup = () => {
     }
   };
 
+  const handleConfirmClick = () => {
+    if (step === "Language") {
+      setStep("Nation");
+    } else if (step === "Nation") {
+      setStep("Name");
+    } else if (step === "Name") {
+      setStep("StudentId");
+    } else if (step === "StudentId") {
+      setStep("StudentInfo");
+    } else if (step === "StudentInfo") {
+      setStep("Gender");
+    } else if (step === "Gender") {
+      setStep("Birth");
+    } else if (step === "Birth") {
+      setStep("SignupComplete");
+    }
+  };
+
+  const isConfirmBtnEnabled = validSteps[step] === true;
+
   return (
     <div className={styles.root}>
       <div className={styles.backBtn}>
@@ -73,7 +99,16 @@ const Signup = () => {
         <div>{steps[step]}</div>
       </div>
       <div className={styles.bottom}>
-        <button className={styles.confirmBtn}>확인</button>
+        <button
+          className={styles.confirmBtn}
+          style={{
+            backgroundColor: isConfirmBtnEnabled ? "#046B40" : "#c6c6c6",
+          }}
+          disabled={!isConfirmBtnEnabled}
+          onClick={handleConfirmClick}
+        >
+          확인
+        </button>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ const SignupTitle: React.FC<SignupTitleProps> = ({ Title }) => {
   const titleStyle: React.CSSProperties = {
     fontSize: "24px",
     fontWeight: 700,
-    marginBottom: "36px",
+    marginBottom: "30px",
   };
 
   return <div style={titleStyle}>{Title}</div>;

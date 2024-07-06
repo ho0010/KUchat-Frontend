@@ -6,7 +6,7 @@ interface SignupTitleProps {
 
 const SignupTitle: React.FC<SignupTitleProps> = ({ Title }) => {
   const titleStyle: React.CSSProperties = {
-    fontSize: "24px",
+    fontSize: "22px",
     fontWeight: 700,
     marginBottom: "30px",
   };

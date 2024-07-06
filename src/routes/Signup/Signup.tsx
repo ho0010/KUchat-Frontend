@@ -31,7 +31,7 @@ const Signup = () => {
   const steps: Record<Step, JSX.Element> = {
     Language: <Language setStepValidity={setStepValidity} />,
     Nation: <Nation setStepValidity={setStepValidity} />,
-    Name: <Name />,
+    Name: <Name setStepValidity={setStepValidity} />,
     StudentId: <StudentId />,
     StudentInfo: <StudentInfo />,
     Gender: <Gender />,

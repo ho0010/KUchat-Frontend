@@ -39,8 +39,8 @@ const Signup = () => {
     Name: <Name setStepValidity={setStepValidity} />,
     StudentId: <StudentId />,
     StudentInfo: <StudentInfo setStepValidity={setStepValidity} />,
-    Gender: <Gender />,
-    Birth: <Birth />,
+    Gender: <Gender setStepValidity={setStepValidity} />,
+    Birth: <Birth setStepValidity={setStepValidity} />,
     SignupComplete: <SignupComplete />,
   };
   const backBtnEnabled = (step: Step): boolean => {

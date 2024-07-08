@@ -24,11 +24,11 @@ const Name: React.FC<NameProps> = ({ setStepValidity }) => {
   return (
     <div>
       <SignupTitle Title="사용하실 이름을 입력해주세요"></SignupTitle>
-      <SignupInputbox
-        value={Name}
-        onChange={hanldeNameChange}
-        warningMessage="20자 이하로 입력해주세요."
-      ></SignupInputbox>
+      <SignupInputbox value={Name} onChange={hanldeNameChange}></SignupInputbox>
+
+      <div style={{ fontSize: "14px", marginTop: "10px" }}>
+        20자이하로 입력해주세요.
+      </div>
     </div>
   );
 };

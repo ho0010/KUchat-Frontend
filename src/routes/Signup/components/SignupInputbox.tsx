@@ -5,6 +5,7 @@ interface SignupInputboxProps {
   onChange: (value: string | undefined) => void;
   warningMessage?: string;
   placeholder?: string;
+  maxLength?: number;
 }
 
 const SignupInputbox: React.FC<SignupInputboxProps> = ({
@@ -12,6 +13,7 @@ const SignupInputbox: React.FC<SignupInputboxProps> = ({
   onChange,
   warningMessage,
   placeholder,
+  maxLength = 20,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const handleFocus = () => {
@@ -24,7 +26,8 @@ const SignupInputbox: React.FC<SignupInputboxProps> = ({
   const handleClear = () => {
     onChange("");
   };
-  const isValid = value !== undefined && value.length == 20;
+  const isValid =
+    value !== undefined && value.length < maxLength && value.length > 0;
 
   return (
     <div>
@@ -36,6 +39,7 @@ const SignupInputbox: React.FC<SignupInputboxProps> = ({
           type="text"
           onFocus={handleFocus}
           onBlur={handleBlur}
+          maxLength={maxLength}
           style={{
             width: "250px",
             height: "28px",

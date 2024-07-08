@@ -40,7 +40,6 @@ const StudentInfo: React.FC<StudentInfoProps> = ({ setStepValidity }) => {
       <SignupInputbox
         value={major}
         onChange={handleMajorChange}
-        warningMessage="20자 이하로 입력해주세요."
         placeholder={"학과이름 전체를 입력해주세요."}
       />
       <div style={{ marginTop: "30px" }}></div>
@@ -49,6 +48,7 @@ const StudentInfo: React.FC<StudentInfoProps> = ({ setStepValidity }) => {
         onChange={handleStudentIdChange}
         warningMessage="학번을 확인해주세요."
         placeholder={"ex) 200012345"}
+        maxLength={9}
       />
     </div>
   );

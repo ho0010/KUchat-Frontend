@@ -38,7 +38,7 @@ const Signup = () => {
     Nation: <Nation setStepValidity={setStepValidity} />,
     Name: <Name setStepValidity={setStepValidity} />,
     StudentId: <StudentId />,
-    StudentInfo: <StudentInfo />,
+    StudentInfo: <StudentInfo setStepValidity={setStepValidity} />,
     Gender: <Gender />,
     Birth: <Birth />,
     SignupComplete: <SignupComplete />,

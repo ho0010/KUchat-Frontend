@@ -4,12 +4,14 @@ interface SignupInputboxProps {
   value: string | undefined;
   onChange: (value: string | undefined) => void;
   warningMessage?: string;
+  placeholder?: string;
 }
 
 const SignupInputbox: React.FC<SignupInputboxProps> = ({
   value,
   onChange,
   warningMessage,
+  placeholder,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const handleFocus = () => {
@@ -28,6 +30,7 @@ const SignupInputbox: React.FC<SignupInputboxProps> = ({
     <div>
       <div style={{ position: "relative", display: "inline-block" }}>
         <input
+          placeholder={placeholder}
           onChange={(e) => onChange(e.target.value)}
           value={value}
           type="text"

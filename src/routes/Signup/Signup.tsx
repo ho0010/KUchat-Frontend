@@ -9,6 +9,7 @@ import Gender from "./components/Gender";
 import Birth from "./components/Birth";
 import SignupComplete from "./components/SignupComplete";
 import styles from "./Signup.module.css";
+import { useNavigate } from "react-router-dom";
 
 export type Step =
   | "Language"
@@ -23,6 +24,7 @@ export type Step =
 const Signup = () => {
   const [step, setStep] = useState<Step>("Language");
   const [validSteps, setValidSteps] = useState<{ [key in Step]?: boolean }>({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     // StudentId 단계의 유효성을 항상 true로 설정
@@ -85,6 +87,8 @@ const Signup = () => {
       setStep("Birth");
     } else if (step === "Birth") {
       setStep("SignupComplete");
+    } else if (step === "SignupComplete") {
+      navigate("/");
     }
   };
 

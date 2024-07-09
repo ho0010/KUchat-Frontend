@@ -39,7 +39,7 @@ const Nation: React.FC<NationProps> = ({ setStepValidity }) => {
   }, [selectedNation]);
 
   return (
-    <div>
+    <div style={{ marginLeft: "30px" }}>
       <SignupTitle Title="출신국가를 알려주세요"></SignupTitle>
 
       <SignupSelectbox

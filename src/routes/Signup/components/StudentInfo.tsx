@@ -34,7 +34,7 @@ const StudentInfo: React.FC<StudentInfoProps> = ({ setStepValidity }) => {
   }, [major, studentId]);
 
   return (
-    <div>
+    <div style={{ marginLeft: "30px" }}>
       <SignupTitle Title="학과와 학번을 알려주세요" />
       <div style={{ marginTop: "40px" }}></div>
       <SignupInputbox

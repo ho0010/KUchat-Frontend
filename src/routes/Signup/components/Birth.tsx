@@ -22,7 +22,7 @@ const Name: React.FC<BirthProps> = ({ setStepValidity }) => {
   }, [Birth]);
 
   return (
-    <div>
+    <div style={{ marginLeft: "30px" }}>
       <SignupTitle Title="생년월일을 알려주세요"></SignupTitle>
       <SignupInputbox
         value={Birth}

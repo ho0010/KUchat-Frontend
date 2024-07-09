@@ -27,6 +27,7 @@ const Signup = () => {
   useEffect(() => {
     // StudentId 단계의 유효성을 항상 true로 설정
     setStepValidity("StudentId", true);
+    setStepValidity("SignupComplete", true);
   }, []);
 
   const setStepValidity = (step: Step, isValid: boolean) => {
@@ -88,10 +89,12 @@ const Signup = () => {
   };
 
   const isConfirmBtnEnabled = validSteps[step] === true;
+  const confirmBtnText =
+    step === "SignupComplete" ? "KU chat 시작하기" : "확인";
 
   return (
     <div className={styles.root}>
-      <div className={styles.backBtn}>
+      <div className={styles.backBtn} style={{ margin: "20px 0 20px 0" }}>
         {backBtnEnabled(step) && (
           <img
             src={left_arrow}
@@ -108,11 +111,12 @@ const Signup = () => {
           className={styles.confirmBtn}
           style={{
             backgroundColor: isConfirmBtnEnabled ? "#046B40" : "#c6c6c6",
+            fontSize: "16px",
           }}
           disabled={!isConfirmBtnEnabled}
           onClick={handleConfirmClick}
         >
-          확인
+          {confirmBtnText}
         </button>
       </div>
     </div>

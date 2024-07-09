@@ -22,7 +22,7 @@ const Name: React.FC<NameProps> = ({ setStepValidity }) => {
   }, [Name]);
 
   return (
-    <div>
+    <div style={{ marginLeft: "30px" }}>
       <SignupTitle Title="사용하실 이름을 입력해주세요"></SignupTitle>
       <SignupInputbox value={Name} onChange={hanldeNameChange}></SignupInputbox>
 

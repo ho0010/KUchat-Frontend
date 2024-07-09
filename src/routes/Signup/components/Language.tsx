@@ -55,7 +55,7 @@ const Language: React.FC<LanguageProps> = ({ setStepValidity }) => {
   }, [selectedAppLanguage, selectedStudyLanguage1, selectedStudyLanguage2]);
 
   return (
-    <div>
+    <div style={{ marginLeft: "30px" }}>
       <SignupTitle Title="언어를 선택해주세요" />
 
       <SignupSelectbox

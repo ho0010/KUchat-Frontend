@@ -4,7 +4,9 @@ import StudentImg from "../../../assets/img/StudentIDimg.svg";
 
 const StudentId = () => {
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div
+      style={{ display: "flex", flexDirection: "column", marginLeft: "30px" }}
+    >
       <SignupTitle Title="학생증을 촬영해주세요"></SignupTitle>
       <img
         src={StudentImg}

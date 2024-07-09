@@ -20,7 +20,7 @@ const Gender: React.FC<GenderProps> = ({ setStepValidity }) => {
   }, [selectedGender]);
 
   return (
-    <div>
+    <div style={{ marginLeft: "30px" }}>
       <SignupTitle Title="성별을 알려주세요"></SignupTitle>
       <div
         style={{

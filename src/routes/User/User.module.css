@@ -1,0 +1,20 @@
+.root{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: Pretendard;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 40px;
+}
+.body{
+
+}
+.footer{
+    
+}

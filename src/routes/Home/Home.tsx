@@ -7,6 +7,7 @@ function Home() {
       <div>안녕하세요 !</div>
       <Link to="/signup">회원가입</Link>
       <Link to="/login">로그인</Link>
+      <Link to="/user">유저</Link>
     </div>
   );
 }

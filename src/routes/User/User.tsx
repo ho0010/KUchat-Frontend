@@ -3,6 +3,12 @@ import styles from "./User.module.css";
 import ChatList from "./components/ChatList";
 import FindFriend from "./components/FindFriend";
 import UserProfile from "./components/Profile";
+import ChatImg from "../../assets/img/User_chat.svg";
+import FriendImg from "../../assets/img/User_Friend.svg";
+import ProfileImg from "../../assets/img/User_Profile.svg";
+import selectedChatImg from "../../assets/img/User_Selected_chat.svg";
+import selectedFriendImg from "../../assets/img/User_Selected_Friend.svg";
+import selectedProfileImg from "../../assets/img/User_Selected_Profile.svg";
 
 type UserStep = "chatList" | "friend" | "profile";
 
@@ -22,23 +28,23 @@ const User = () => {
         {step === "profile" && <UserProfile />}
       </div>
       <div className={styles.footer}>
-        <button
-          onClick={() => setStep("chatList")}
-          className={step === "chatList" ? styles.active : ""}
-        >
-          채팅
+        <button onClick={() => setStep("chatList")}>
+          <img
+            src={step === "chatList" ? selectedChatImg : ChatImg}
+            alt="채팅"
+          />{" "}
         </button>
-        <button
-          onClick={() => setStep("friend")}
-          className={step === "friend" ? styles.active : ""}
-        >
-          친구
+        <button onClick={() => setStep("friend")}>
+          <img
+            src={step === "friend" ? selectedFriendImg : FriendImg}
+            alt="친구"
+          />
         </button>
-        <button
-          onClick={() => setStep("profile")}
-          className={step === "profile" ? styles.active : ""}
-        >
-          프로필
+        <button onClick={() => setStep("profile")}>
+          <img
+            src={step === "profile" ? selectedProfileImg : ProfileImg}
+            alt="프로필"
+          />{" "}
         </button>
       </div>
     </div>

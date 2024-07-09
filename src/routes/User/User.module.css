@@ -11,6 +11,8 @@
     font-size: 20px;
     font-weight: 600;
     margin-top: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #F5F5F5;
 }
 .body{
     flex: 1;
@@ -21,7 +23,9 @@
     justify-content: space-around;
     align-items: center;
     height: 50px;
-    background-color: #f0f0f0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 하단 바 위쪽에 쉐도우 추가 */
+    padding-top: 10px;
+
 }
 .footer button {
     flex: 1;
@@ -30,7 +34,3 @@
     background: none;
     font-size: 16px;
 }
-.footer .active {
-    color: green;
-    font-weight: bold;
-}  

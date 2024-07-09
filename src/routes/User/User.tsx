@@ -14,7 +14,7 @@ const User = () => {
       <div className={styles.header}>
         {step === "chatList" && <h1>채팅 목록</h1>}
         {step === "friend" && <h1>친구 찾기</h1>}
-        {step === "profile" && <h1>나의 프로</h1>}
+        {step === "profile" && <h1>나의 프로필</h1>}
       </div>
       <div className={styles.body}>
         {step === "chatList" && <ChatList />}

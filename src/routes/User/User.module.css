@@ -13,8 +13,24 @@
     margin-top: 40px;
 }
 .body{
-
+    flex: 1;
+    overflow-y: auto;
 }
 .footer{
-    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    background-color: #f0f0f0;
 }
+.footer button {
+    flex: 1;
+    height: 100%;
+    border: none;
+    background: none;
+    font-size: 16px;
+}
+.footer .active {
+    color: green;
+    font-weight: bold;
+}  

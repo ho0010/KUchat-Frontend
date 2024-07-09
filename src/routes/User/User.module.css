@@ -18,6 +18,20 @@
     flex: 1;
     overflow-y: auto;
 }
+.detailHeader{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.detailHeader button{
+    position:absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 .footer{
     display: flex;
     justify-content: space-around;

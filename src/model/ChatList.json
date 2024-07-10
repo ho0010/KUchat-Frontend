@@ -1,0 +1,58 @@
+[
+  {
+    "img": "https://randomuser.me/api/portraits/women/1.jpg",
+    "nation": "미국",
+    "name": "Annette Black",
+    "text": "정말 조아요 :)",
+    "time": "08:20 pm",
+    "num": 1
+  },
+  {
+    "img": "https://randomuser.me/api/portraits/men/2.jpg",
+    "nation": "일본",
+    "name": "井上 武史",
+    "text": "そうだったかも。",
+    "time": "05:49 pm",
+    "num": 0
+  },
+  {
+    "img": "https://randomuser.me/api/portraits/women/3.jpg",
+    "nation": "대한민국",
+    "name": "Esther Howard",
+    "text": "What is your favorite ...",
+    "time": "05:14 pm",
+    "num": 0
+  },
+  {
+    "img": "https://randomuser.me/api/portraits/men/4.jpg",
+    "nation": "우즈베키스탄",
+    "name": "Savannah Nguyen",
+    "text": "Coooool!!!",
+    "time": "12:01 pm",
+    "num": 0
+  },
+  {
+    "img": "https://randomuser.me/api/portraits/women/5.jpg",
+    "nation": "중국",
+    "name": "山口 結衣",
+    "text": "오늘 일감호에 다녀왔어요",
+    "time": "07:40 am",
+    "num": 3
+  },
+  {
+    "img": "https://randomuser.me/api/portraits/men/6.jpg",
+    "nation": "",
+    "name": "Leslie Alexander",
+    "text": "What's your major?",
+    "time": "1 day ago",
+    "num": 0
+  },
+  {
+    "img": "https://randomuser.me/api/portraits/men/6.jpg",
+    "nation": "",
+    "name": "Leslie Alexander",
+    "text": "What's your major?",
+    "time": "1 day ago",
+    "num": 0
+  }
+]

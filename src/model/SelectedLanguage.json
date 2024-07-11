@@ -1,0 +1,10 @@
+[
+  {
+    "Language": "영어",
+    "state": true
+  },
+  {
+    "Language": "한국어",
+    "state": false
+  }
+]

@@ -5,9 +5,9 @@
     "age": 27,
     "gender": "female",
     "department": "컴퓨터공학과",
-    "quote": "Never do anything out of hunger. Not even eating.",
+    "text": "Never do anything out of hunger. Not even eating.",
     "verified": true,
-    "nation": "영국"
+    "nation": "우즈베키스탄"
   },
   {
     "img": "https://randomuser.me/api/portraits/men/2.jpg",
@@ -15,7 +15,7 @@
     "age": 28,
     "gender": "male",
     "department": "경영학과",
-    "quote": "Life is either a daring adventure or nothing at all.",
+    "text": "Life is either a daring adventure or nothing at all.",
     "verified": false,
     "nation": "미국"
   },
@@ -25,7 +25,7 @@
     "age": 23,
     "gender": "male",
     "department": "스마트ICT융합공학과",
-    "quote": "The way to get started is to quit talking and begin doing.",
+    "text": "The way to get started is to quit talking and begin doing.",
     "verified": true,
     "nation": "미국"
   },
@@ -35,9 +35,9 @@
     "age": 21,
     "gender": "female",
     "department": "수학과",
-    "quote": "Do what you can, with what you have, where you are.",
+    "text": "Do what you can, with what you have, where you are.",
     "verified": true,
-    "nation": "캐나다"
+    "nation": "몽골"
   },
   {
     "img": "https://randomuser.me/api/portraits/men/5.jpg",
@@ -45,9 +45,9 @@
     "age": 22,
     "gender": "female",
     "department": "문화콘텐츠학과",
-    "quote": "The best time to plant a tree was 20 years ago. The second best time is now.",
+    "text": "The best time to plant a tree was 20 years ago. The second best time is now.",
     "verified": false,
-    "nation": "캐나다"
+    "nation": "몽골"
   },
   {
     "img": "https://randomuser.me/api/portraits/men/5.jpg",
@@ -55,9 +55,9 @@
     "age": 22,
     "gender": "female",
     "department": "문화콘텐츠학과",
-    "quote": "The best time to plant a tree was 20 years ago. The second best time is now.",
+    "text": "The best time to plant a tree was 20 years ago. The second best time is now.",
     "verified": false,
-    "nation": "캐나다"
+    "nation": "프랑스"
   },
   {
     "img": "https://randomuser.me/api/portraits/men/5.jpg",
@@ -65,8 +65,8 @@
     "age": 22,
     "gender": "female",
     "department": "문화콘텐츠학과",
-    "quote": "The best time to plant a tree was 20 years ago. The second best time is now.",
+    "text": "The best time to plant a tree was 20 years ago. The second best time is now.",
     "verified": false,
-    "nation": "캐나다"
+    "nation": "프랑스"
   }
 ]

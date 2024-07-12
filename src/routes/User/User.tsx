@@ -36,7 +36,17 @@ const User = () => {
         {step === "friend" && (
           <div className={styles.detailHeader}>
             <h1>친구 찾기</h1>
-            <button onClick={() => setSearchIdModal(true)}>ID 검색</button>
+            <button
+              style={{
+                backgroundColor: "#D4F4D9",
+                color: "#046B40",
+                borderRadius: "8px",
+                padding: "4px 8px",
+              }}
+              onClick={() => setSearchIdModal(true)}
+            >
+              ID 검색
+            </button>
           </div>
         )}
         {step === "profile" && (

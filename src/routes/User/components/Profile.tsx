@@ -197,7 +197,7 @@ const Profile: React.FC<ProfileProps> = ({
         style={{
           marginTop: "24px",
           width: "300px",
-          padding: "10px 10px 100px 10px",
+          padding: "10px 4px 100px 10px",
           borderRadius: "4px",
           border: "1px solid #d9d9d9",
           fontSize: "14px",

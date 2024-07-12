@@ -11,11 +11,14 @@ import selectedFriendImg from "../../assets/img/User_Selected_Friend.svg";
 import selectedProfileImg from "../../assets/img/User_Selected_Profile.svg";
 import ChatPlusImg from "../../assets/img/User_Chat_Plus.svg";
 import ProfileSettingImg from "../../assets/img/User_Profile_Setting.svg";
+import ChatMakeModal from "./components/ChatMakeModal";
+import FriendListData from "../../model/FriendList.json";
 
 type UserStep = "chatList" | "friend" | "profile";
 
 const User = () => {
   const [step, setStep] = useState<UserStep>("profile");
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className={styles.root}>
@@ -23,7 +26,7 @@ const User = () => {
         {step === "chatList" && (
           <div className={styles.detailHeader}>
             <h1>채팅 목록</h1>
-            <button>
+            <button onClick={() => setShowModal(true)}>
               <img src={ChatPlusImg} alt="채팅 추가" />
             </button>
           </div>
@@ -63,6 +66,11 @@ const User = () => {
           />{" "}
         </button>
       </div>
+      <ChatMakeModal
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        friendList={FriendListData}
+      />
     </div>
   );
 };

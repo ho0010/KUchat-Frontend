@@ -1,0 +1,40 @@
+{
+  "recentMessages": [
+    {
+      "messageId": 1,
+      "chatroomId": 1,
+      "messageType": "JOIN",
+      "senderId": -1,
+      "text": "이영선 님이 입장했습니다.",
+      "parentId": null,
+      "createdDate": "2024-07-12T15:38:59.889304"
+    },
+    {
+      "messageId": 2,
+      "chatroomId": 1,
+      "messageType": "TALK",
+      "senderId": 1,
+      "text": "야 임마,",
+      "parentId": null,
+      "createdDate": "2024-07-12T15:39:59.889304"
+    },
+    {
+      "messageId": 3,
+      "chatroomId": 1,
+      "messageType": "TALK",
+      "senderId": 2,
+      "text": "뭐 임마,",
+      "parentId": null,
+      "createdDate": "2024-07-12T15:39:59.889304"
+    },
+    {
+      "messageId": 4,
+      "chatroomId": 1,
+      "messageType": "TALK",
+      "senderId": 1,
+      "text": "밥뭇나",
+      "parentId": 3,
+      "createdDate": "2024-07-13T15:42:59.889304"
+    }
+  ]
+}

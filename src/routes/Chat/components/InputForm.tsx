@@ -1,6 +1,18 @@
 import React from "react";
 
-const InputForm = ({ onSubmit, value, onChange, handleEnter }) => {
+interface InputFormProps {
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  handleEnter: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void;
+}
+
+const InputForm: React.FC<InputFormProps> = ({
+  onSubmit,
+  value,
+  onChange,
+  handleEnter,
+}) => {
   return (
     <form onSubmit={onSubmit}>
       <textarea

@@ -14,7 +14,15 @@ const InputForm: React.FC<InputFormProps> = ({
   handleEnter,
 }) => {
   return (
-    <form onSubmit={onSubmit}>
+    <form
+      onSubmit={onSubmit}
+      style={{
+        flex: 1,
+        border: "none",
+        padding: "10px",
+        wordBreak: "break-all",
+      }}
+    >
       <textarea
         required
         value={value}
@@ -22,6 +30,7 @@ const InputForm: React.FC<InputFormProps> = ({
         onKeyDown={handleEnter}
         placeholder="메세지를 입력하세요"
       ></textarea>
+      <button type="submit"></button>
     </form>
   );
 };

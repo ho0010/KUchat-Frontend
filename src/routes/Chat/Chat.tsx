@@ -5,6 +5,7 @@ import chatData from "../../model/ChatInner.json";
 import styles from "./Chat.module.css";
 import left_arrow from "../../assets/img/left_arrow.svg";
 import { useNavigate } from "react-router-dom";
+import chatAI from "../../assets/img/Chat_AI.svg";
 
 interface Chat {
   messageId: number;
@@ -13,6 +14,11 @@ interface Chat {
   text: string;
   date: string;
   parentId: number | null;
+}
+
+interface SenderInfo {
+  name: string;
+  profileImg: string;
 }
 
 const curUser = 0; // 현재 사용자 ID
@@ -80,32 +86,72 @@ const App: React.FC = () => {
     navigate(-1);
   };
 
+  const getSenderInfo = (senderId: number): SenderInfo => {
+    const member = chatData.memberInfos.find(
+      (member) => member.id === senderId,
+    );
+    return member
+      ? { name: member.name, profileImg: member.profileImage }
+      : { name: "", profileImg: "" };
+  };
+
   return (
     <div className={styles.root} ref={chatListRef}>
       <div className={styles.header}>
         <img src={left_arrow} alt="뒤로가기" onClick={handleBackClick} />{" "}
         <div>{chatData.name}</div>
       </div>
-      <div>
-        {chats.map((chat) => (
-          <div
-            key={chat.messageId}
-            className={
-              chat.senderId === 0 ? styles.senderZero : styles.senderNonZero
-            }
-          >
-            <div className={styles.chatSender}>{chat.senderId}:</div>
-            <div className={styles.chatText}>{chat.text}</div>
-            <div className={styles.chatDate}>{FormatDate(chat.date)}</div>
-          </div>
-        ))}
+      <div className={styles.chatList}>
+        <img src={chatAI} className={styles.chatAI} />
+        {chats.map((chat) => {
+          if (chat.senderId === -1 || chat.messageType === "JOIN") {
+            return (
+              <div key={chat.messageId} className={styles.announceMent}>
+                {chat.text}
+              </div>
+            );
+          }
+          const senderInfo = getSenderInfo(chat.senderId);
+          return (
+            <div
+              key={chat.messageId}
+              className={
+                chat.senderId === 0 ? styles.hostChat : styles.notHostChat
+              }
+            >
+              {chat.senderId === curUser ? (
+                <div className={styles.chatCtn}>
+                  <div className={styles.chatDate}>{FormatDate(chat.date)}</div>
+                  <div className={styles.chatText}>{chat.text}</div>
+                </div>
+              ) : (
+                <>
+                  <div className={styles.chatSender}>{senderInfo.name}</div>
+                  <div className={styles.chatCtn}>
+                    <img
+                      src={senderInfo.profileImg}
+                      className={styles.profileImg}
+                      alt={senderInfo.name}
+                    />
+                    <div className={styles.chatText}>{chat.text}</div>
+                    <div className={styles.chatDate}>
+                      {FormatDate(chat.date)}
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+          );
+        })}
       </div>
-      <InputForm
-        onSubmit={onSubmit}
-        value={inputValue}
-        onChange={onChange}
-        handleEnter={handleEnter}
-      />
+      <div className={styles.footer}>
+        <InputForm
+          onSubmit={onSubmit}
+          value={inputValue}
+          onChange={onChange}
+          handleEnter={handleEnter}
+        />
+      </div>
     </div>
   );
 };

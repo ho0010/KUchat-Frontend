@@ -1,5 +1,5 @@
 {
-  "name": "채팅방이름3",
+  "name": "John Doe",
   "recentMessages": [
     {
       "messageId": 1,
@@ -15,7 +15,7 @@
       "chatroomId": 1,
       "messageType": "TALK",
       "senderId": 1,
-      "text": "하이하이",
+      "text": "하이하이방",
       "parentId": null,
       "createdDate": "2024-07-12T15:39:25.523467"
     },
@@ -24,7 +24,7 @@
       "chatroomId": 1,
       "messageType": "TALK",
       "senderId": 2,
-      "text": "안뇽",
+      "text": "안뇽ㄹㅇㄹㄴㅁㅇ란ㄹㅁㄴ알저는애호박입니다입니다입니당ㄴ빈당",
       "parentId": null,
       "createdDate": "2024-07-12T15:40:01.572346"
     }

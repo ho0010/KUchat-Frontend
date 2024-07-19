@@ -1,35 +1,111 @@
 .root{
     background-color: #f5f5f5;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    display: flex;
     box-sizing: border-box;
+    font-family: Pretendard;
 }
-.senderZero {
-    background-color: #ffeb3b; /* Yellow background for senderId 0 */
-    padding: 10px;
-    border-radius: 10px;
-    margin: 5px 0;
+.header{
+    display: flex;
+    padding: 30px 0 20px 20px;
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    align-items: center;
+    background-color: #f5f5f5;
 }
-.senderNonZero {
-    background-color: #ffffff; /* White background for senderId non-zero */
-    padding: 10px;
-    border-radius: 10px;
+.header > div {
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 20px;
+    }
+.footer{
+    display: flex;
+    position: fixed;
+    bottom:0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: #fff
+    
+
+}
+.hostChat {
+    display: flex;
     margin: 5px 0;
-    border: 1px solid #e0e0e0;
+    border:none;
+    align-self: flex-end;
+    > div > .chatText{
+        background-color: #FFD169;
+        padding: 16px;
+        word-break: break-word;
+        border-radius: 20px;
+    }
+
+}
+.notHostChat {
+    margin: 5px 0;
+    border: none;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    > div > .chatText{
+        background-color: #fff; 
+        padding: 16px;
+        border-radius: 20px;
+        word-break: break-word;
+    }
 }
 .chatSender {
-    font-weight: bold;
-    color: #333;
-} 
+    color: #888;
+    margin-left: 60px;
+    } 
 .chatText {
     margin-top: 5px;
 }
 .chatDate {
     font-size: 12px;
     color: #888;
-    text-align: right;
-    margin-top: 5px;
+    margin: 20px 0 0 0;
+    min-width: 14%;
+
 }
-.header{
-    
+.chatList{
+    flex: 1;
+    overflow-y: auto;
+    padding-top: 80px; 
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+}
+.chatList::-webkit-scrollbar {
+    display: none;
+}
+.profileImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.chatCtn{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 8px 0 8px;
+}
+.chatAI{
+    position: fixed;
+   right: 0;
+}
+.announceMent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 00;
+    color: #888;
+    background-color: #f5f5f5;
+    padding: 4px 0 12px 0;
 }

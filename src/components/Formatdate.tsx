@@ -8,7 +8,7 @@ const Formatdate = (dateStr: string): string => {
   if (difference < 1) {
     return format(date, "HH:mm a");
   } else {
-    return format(date, "yyyy-MM-dd");
+    return format(date, "MM-dd");
   }
 };
 export default Formatdate;

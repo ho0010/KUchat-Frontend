@@ -3,6 +3,8 @@ import InputForm from "./components/InputForm"; // 분리된 InputForm 컴포넌
 import FormatDate from "../../components/Formatdate";
 import chatData from "../../model/ChatInner.json";
 import styles from "./Chat.module.css";
+import left_arrow from "../../assets/img/left_arrow.svg";
+import { useNavigate } from "react-router-dom";
 
 interface Chat {
   messageId: number;
@@ -27,6 +29,7 @@ const App: React.FC = () => {
       parentId: msg.parentId,
     })),
   );
+  const navigate = useNavigate();
   const nextMessageId = useRef<number>(chatData.recentMessages.length + 1);
 
   const onChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -73,8 +76,16 @@ const App: React.FC = () => {
     chatListRef.current?.scrollTo(0, chatListRef.current.scrollHeight);
   }, [chats]);
 
+  const handleBackClick = () => {
+    navigate(-1);
+  };
+
   return (
-    <div ref={chatListRef}>
+    <div className={styles.root} ref={chatListRef}>
+      <div className={styles.header}>
+        <img src={left_arrow} alt="뒤로가기" onClick={handleBackClick} />{" "}
+        <div>{chatData.name}</div>
+      </div>
       <div>
         {chats.map((chat) => (
           <div

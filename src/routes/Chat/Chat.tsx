@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import InputForm from "./components/InputForm"; // 분리된 InputForm 컴포넌트 임포트
+import Formatdate from "../../components/Formatdate";
 
 interface Chat {
   id: number;
@@ -10,8 +11,18 @@ interface Chat {
 
 const chatData = {
   chats: [
-    { id: 1, senderId: "user1", text: "Hello!", date: "2024-01-01" },
-    { id: 2, senderId: "user2", text: "Hi there!", date: "2024-01-02" },
+    {
+      id: 1,
+      senderId: "user1",
+      text: "Hello!",
+      date: "2024-07-11T17:45:46.194878",
+    },
+    {
+      id: 2,
+      senderId: "user2",
+      text: "Hi there!",
+      date: "2024-07-12T15:39:25.523467",
+    },
   ],
 };
 
@@ -51,7 +62,7 @@ const App: React.FC = () => {
         id: nextChatId.current,
         senderId: curUser,
         text,
-        date: String(new Date()),
+        date: new Date().toISOString(),
       };
       setChats((prevChats) => [...prevChats, chat]);
       nextChatId.current++;
@@ -72,7 +83,7 @@ const App: React.FC = () => {
             <p>
               <strong>{chat.senderId}:</strong> {chat.text}
             </p>
-            <p>{chat.date}</p>
+            <p>{Formatdate(chat.date)}</p>
           </div>
         ))}
       </div>

@@ -1,15 +1,14 @@
 {
-  "name": "제임스",
-  "chatroomImage": "https://randomuser.me/api/portraits/men/2.jpg",
+  "name": "채팅방이름3",
   "recentMessages": [
     {
       "messageId": 1,
       "chatroomId": 1,
       "messageType": "JOIN",
       "senderId": -1,
-      "text": "이영선 님이 입장했습니다.",
+      "text": "이영선, 정연우 님이 입장했습니다.",
       "parentId": null,
-      "createdDate": "2024-07-12T15:38:59.889304"
+      "createdDate": "2024-07-11T17:45:46.194878"
     },
     {
       "messageId": 2,
@@ -28,15 +27,18 @@
       "text": "안뇽",
       "parentId": null,
       "createdDate": "2024-07-12T15:40:01.572346"
+    }
+  ],
+  "memberInfos": [
+    {
+      "id": 1,
+      "name": "이영선",
+      "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocLyBE1jQpdux440IbjqMRhiYQ8XJxUyyhgRUsz6Sid1iwNxdg=s96-c"
     },
     {
-      "messageId": 4,
-      "chatroomId": 1,
-      "messageType": "TALK",
-      "senderId": 2,
-      "text": "반갑소",
-      "parentId": null,
-      "createdDate": "2024-07-12T15:40:21.572346"
+      "id": 2,
+      "name": "정연우",
+      "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocIzw35EHd3Uk7g_gBFtSUMt-OBGySchE_C1GRNvXXU32TVBAhY=s96-c"
     }
   ]
 }

@@ -1,37 +1,32 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import InputForm from "./components/InputForm"; // 분리된 InputForm 컴포넌트 임포트
-import Formatdate from "../../components/Formatdate";
+import FormatDate from "../../components/Formatdate";
+import chatData from "../../model/ChatInner.json";
 
 interface Chat {
-  id: number;
-  senderId: string;
+  messageId: number;
+  messageType: string;
+  senderId: number;
   text: string;
   date: string;
+  parentId: number | null;
 }
 
-const chatData = {
-  chats: [
-    {
-      id: 1,
-      senderId: "user1",
-      text: "Hello!",
-      date: "2024-07-11T17:45:46.194878",
-    },
-    {
-      id: 2,
-      senderId: "user2",
-      text: "Hi there!",
-      date: "2024-07-12T15:39:25.523467",
-    },
-  ],
-};
-
-const curUser = "currentUser"; // 현재 사용자 ID
+const curUser = 1; // 현재 사용자 ID
 
 const App: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>("");
-  const [chats, setChats] = useState<Chat[]>(chatData.chats);
-  const nextChatId = useRef<number>(chatData.chats.length + 1);
+  const [chats, setChats] = useState<Chat[]>(
+    chatData.recentMessages.map((msg) => ({
+      messageId: msg.messageId,
+      messageType: msg.messageType,
+      senderId: msg.senderId,
+      text: msg.text,
+      date: msg.createdDate,
+      parentId: msg.parentId,
+    })),
+  );
+  const nextChatId = useRef<number>(chatData.recentMessages.length + 1);
 
   const onChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(e.target.value);
@@ -59,10 +54,12 @@ const App: React.FC = () => {
   const onConcat = useCallback(
     (text: string) => {
       const chat: Chat = {
-        id: nextChatId.current,
+        messageId: nextChatId.current,
+        messageType: "TALK", // 새로운 메시지는 기본적으로 "TALK" 타입으로 설정
         senderId: curUser,
         text,
         date: new Date().toISOString(),
+        parentId: null,
       };
       setChats((prevChats) => [...prevChats, chat]);
       nextChatId.current++;
@@ -79,11 +76,11 @@ const App: React.FC = () => {
     <div ref={chatListRef}>
       <div>
         {chats.map((chat) => (
-          <div key={chat.id}>
+          <div key={chat.messageId}>
             <p>
               <strong>{chat.senderId}:</strong> {chat.text}
             </p>
-            <p>{Formatdate(chat.date)}</p>
+            <p>{FormatDate(chat.date)}</p>
           </div>
         ))}
       </div>

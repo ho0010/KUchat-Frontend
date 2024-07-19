@@ -6,7 +6,7 @@ const Formatdate = (dateStr: string): string => {
   const difference = differenceInDays(now, date);
 
   if (difference < 1) {
-    return format(date, "HH:mm");
+    return format(date, "HH:mm a");
   } else {
     return format(date, "yyyy-MM-dd");
   }

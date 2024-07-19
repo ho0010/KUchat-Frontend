@@ -1,0 +1,31 @@
+.senderZero {
+    background-color: #ffeb3b; /* Yellow background for senderId 0 */
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+  }
+  
+  .senderNonZero {
+    background-color: #ffffff; /* White background for senderId non-zero */
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .chatSender {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .chatText {
+    margin-top: 5px;
+  }
+  
+  .chatDate {
+    font-size: 12px;
+    color: #888;
+    text-align: right;
+    margin-top: 5px;
+  }
+  

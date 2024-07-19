@@ -2,6 +2,7 @@ import React, { useState, useCallback, useRef, useEffect } from "react";
 import InputForm from "./components/InputForm"; // 분리된 InputForm 컴포넌트 임포트
 import FormatDate from "../../components/Formatdate";
 import chatData from "../../model/ChatInner.json";
+import styles from "./Chat.module.css";
 
 interface Chat {
   messageId: number;
@@ -12,7 +13,7 @@ interface Chat {
   parentId: number | null;
 }
 
-const curUser = 1; // 현재 사용자 ID
+const curUser = 0; // 현재 사용자 ID
 
 const App: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>("");
@@ -26,7 +27,7 @@ const App: React.FC = () => {
       parentId: msg.parentId,
     })),
   );
-  const nextChatId = useRef<number>(chatData.recentMessages.length + 1);
+  const nextMessageId = useRef<number>(chatData.recentMessages.length + 1);
 
   const onChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(e.target.value);
@@ -54,7 +55,7 @@ const App: React.FC = () => {
   const onConcat = useCallback(
     (text: string) => {
       const chat: Chat = {
-        messageId: nextChatId.current,
+        messageId: nextMessageId.current,
         messageType: "TALK", // 새로운 메시지는 기본적으로 "TALK" 타입으로 설정
         senderId: curUser,
         text,
@@ -62,7 +63,7 @@ const App: React.FC = () => {
         parentId: null,
       };
       setChats((prevChats) => [...prevChats, chat]);
-      nextChatId.current++;
+      nextMessageId.current++;
     },
     [chats, curUser],
   );
@@ -76,11 +77,15 @@ const App: React.FC = () => {
     <div ref={chatListRef}>
       <div>
         {chats.map((chat) => (
-          <div key={chat.messageId}>
-            <p>
-              <strong>{chat.senderId}:</strong> {chat.text}
-            </p>
-            <p>{FormatDate(chat.date)}</p>
+          <div
+            key={chat.messageId}
+            className={
+              chat.senderId === 0 ? styles.senderZero : styles.senderNonZero
+            }
+          >
+            <div className={styles.chatSender}>{chat.senderId}:</div>
+            <div className={styles.chatText}>{chat.text}</div>
+            <div className={styles.chatDate}>{FormatDate(chat.date)}</div>
           </div>
         ))}
       </div>

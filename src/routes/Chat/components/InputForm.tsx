@@ -40,7 +40,10 @@ const InputForm: React.FC<InputFormProps> = ({
           background: "#f8f8f8",
           border: "none",
           borderRadius: "30px",
-          width: "60%",
+          minWidth: "60%",
+          outline: "none",
+          padding: "4px",
+          fontSize: "16px",
         }}
       ></textarea>
       <button style={{ background: "#fff", border: "none" }}>

@@ -1,0 +1,44 @@
+{
+  "name": "John Doe",
+  "recentMessages": [
+    {
+      "messageId": 1,
+      "chatroomId": 1,
+      "messageType": "JOIN",
+      "senderId": -1,
+      "text": "이영선, 정연우 님이 입장했습니다.",
+      "parentId": null,
+      "createdDate": "2024-07-11T17:45:46.194878"
+    },
+    {
+      "messageId": 2,
+      "chatroomId": 1,
+      "messageType": "TALK",
+      "senderId": 1,
+      "text": "하이하이방",
+      "parentId": null,
+      "createdDate": "2024-07-12T15:39:25.523467"
+    },
+    {
+      "messageId": 3,
+      "chatroomId": 1,
+      "messageType": "TALK",
+      "senderId": 2,
+      "text": "안뇽ㄹㅇㄹㄴㅁㅇ란ㄹㅁㄴ알저는애호박입니다입니다입니당ㄴ빈당",
+      "parentId": null,
+      "createdDate": "2024-07-12T15:40:01.572346"
+    }
+  ],
+  "memberInfos": [
+    {
+      "id": 1,
+      "name": "이영선",
+      "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocLyBE1jQpdux440IbjqMRhiYQ8XJxUyyhgRUsz6Sid1iwNxdg=s96-c"
+    },
+    {
+      "id": 2,
+      "name": "정연우",
+      "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocIzw35EHd3Uk7g_gBFtSUMt-OBGySchE_C1GRNvXXU32TVBAhY=s96-c"
+    }
+  ]
+}

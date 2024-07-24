@@ -11,11 +11,16 @@ import selectedFriendImg from "../../assets/img/User_Selected_Friend.svg";
 import selectedProfileImg from "../../assets/img/User_Selected_Profile.svg";
 import ChatPlusImg from "../../assets/img/User_Chat_Plus.svg";
 import ProfileSettingImg from "../../assets/img/User_Profile_Setting.svg";
+import ChatMakeModal from "./components/ChatMakeModal";
+import FriendListData from "../../model/FriendList.json";
+import SearchIdModal from "./components/SearchIdModal";
 
 type UserStep = "chatList" | "friend" | "profile";
 
 const User = () => {
   const [step, setStep] = useState<UserStep>("profile");
+  const [makeChatModal, setMakeChatModal] = useState(false);
+  const [searchIdModal, setSearchIdModal] = useState(false);
 
   return (
     <div className={styles.root}>
@@ -23,12 +28,27 @@ const User = () => {
         {step === "chatList" && (
           <div className={styles.detailHeader}>
             <h1>채팅 목록</h1>
-            <button>
+            <button onClick={() => setMakeChatModal(true)}>
               <img src={ChatPlusImg} alt="채팅 추가" />
             </button>
           </div>
         )}
-        {step === "friend" && <h1>친구 찾기</h1>}
+        {step === "friend" && (
+          <div className={styles.detailHeader}>
+            <h1>친구 찾기</h1>
+            <button
+              style={{
+                backgroundColor: "#D4F4D9",
+                color: "#046B40",
+                borderRadius: "8px",
+                padding: "4px 8px",
+              }}
+              onClick={() => setSearchIdModal(true)}
+            >
+              ID 검색
+            </button>
+          </div>
+        )}
         {step === "profile" && (
           <div className={styles.detailHeader}>
             <h1>나의 프로필</h1>
@@ -63,6 +83,15 @@ const User = () => {
           />{" "}
         </button>
       </div>
+      <ChatMakeModal
+        show={makeChatModal}
+        onClose={() => setMakeChatModal(false)}
+        friendList={FriendListData}
+      />
+      <SearchIdModal
+        show={searchIdModal}
+        onClose={() => setSearchIdModal(false)}
+      />
     </div>
   );
 };

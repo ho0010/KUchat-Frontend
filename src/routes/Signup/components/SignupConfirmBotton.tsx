@@ -12,14 +12,18 @@ const SignupConfirmButton: React.FC<SignupConfirmButtonProps> = ({
   text,
 }) => {
   return (
-    <div style={{ display: "flex" }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <button
         style={{
           backgroundColor: isEnabled ? "#046b40" : "#c6c6c6",
           width: "84vw",
           height: "6vh",
-          justifyContent: "center",
-          alignItems: "center",
           borderRadius: "6px",
           color: "#fff",
           border: "none",

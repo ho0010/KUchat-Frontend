@@ -32,13 +32,8 @@ const SignupComplete = () => {
           회원가입을 완료했어요!
         </div>
       </div>
-      <div
-        style={{
-          display: "flex",
-        }}
-      >
-        <SignupConfirmButton text="KU chat 시작하기"></SignupConfirmButton>
-      </div>
+
+      <SignupConfirmButton text="KU chat 시작하기"></SignupConfirmButton>
     </div>
   );
 };

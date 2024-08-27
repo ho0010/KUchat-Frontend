@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import left_arrow from "../../assets/img/left_arrow.svg";
 import Language, { LanguageOption } from "./components/Language";
 import Nation, { NationOption } from "./components/Nation";
@@ -19,6 +19,64 @@ export type Step =
   | "Gender"
   | "Birth"
   | "SignupComplete";
+
+const submitSignupData = (): {
+  appLanguage: LanguageOption | null;
+  studyLanguageFirst: LanguageOption | null;
+  studyLanguageSecond: LanguageOption | null;
+  nation: NationOption | null;
+  name: string | null;
+  studentInfo: string | null;
+  gender: string | null;
+  birth: string | null;
+} => {
+  const {
+    appLanguage,
+    studyLanguageFirst,
+    studyLanguageSecond,
+    nation,
+    name,
+    studentInfo,
+    gender,
+    birth,
+  } = useSignupStore.getState();
+
+  return {
+    appLanguage,
+    studyLanguageFirst,
+    studyLanguageSecond,
+    nation,
+    name,
+    studentInfo,
+    gender,
+    birth,
+  };
+};
+
+const handleSubmit = async () => {
+  const signupData = submitSignupData();
+
+  try {
+    const response = await fetch("https://kuchat.site/member/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(signupData),
+    });
+
+    if (response.ok) {
+      // 성공적으로 전송되었을 때의 처리
+      console.log("Signup successful!");
+    } else {
+      // 서버에서 에러를 반환했을 때의 처리
+      console.error("Signup failed.");
+    }
+  } catch (error) {
+    // 네트워크 오류 등으로 요청이 실패했을 때의 처리
+    console.error("Error:", error);
+  }
+};
 
 const Signup = () => {
   const [step, setStep] = useState<Step>("Language");
@@ -58,6 +116,7 @@ const Signup = () => {
 
   const handleBirthConfirm = (birth: string) => {
     useSignupStore.setState({ birth: birth });
+    handleSubmit();
     setStep("SignupComplete");
   };
 

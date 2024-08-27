@@ -1,6 +1,6 @@
 import { create } from "zustand";
-import { LanguageOption } from "../routes/Signup/components/Language";
-import { NationOption } from "../routes/Signup/components/Nation";
+import { LanguageOption } from "../pages/Signup/components/Language";
+import { NationOption } from "../pages/Signup/components/Nation";
 
 interface SignupState {
   appLanguage: LanguageOption | null;

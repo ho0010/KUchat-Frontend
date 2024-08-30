@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Splash from "./Splash";
 import styles from "./Login.module.css";
 import KUchat_Logo from "../../assets/img/KUchat_logo.svg";
+import GoogleImg from "../../assets/img/Google_img.svg";
 
 function Login() {
   const [showSplash, setShowSplash] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => setShowSplash(false), 3000);
@@ -14,7 +13,8 @@ function Login() {
   }, []);
 
   const handleClick = () => {
-    navigate("/signup");
+    window.location.href =
+      "https://www.kuchat.site/oauth2/authorization/google";
   };
   return showSplash ? (
     <Splash />
@@ -23,7 +23,10 @@ function Login() {
       <div className={styles.ctn}>
         <img src={KUchat_Logo} alt="KU chat logo" />
         <div className={styles.splashText}>KU chat</div>
-        <button onClick={handleClick}>d</button>
+        <button className={styles.googleBtn} onClick={handleClick}>
+          <img src={GoogleImg} alt="Google logo" />
+          <div className={styles.googleText}>start with Google</div>
+        </button>
       </div>
     </div>
   );

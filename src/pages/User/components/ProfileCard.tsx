@@ -82,7 +82,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  backgroundColor: gender === "male" ? "#6C89FF" : "#FE7E91",
+                  backgroundColor: gender === "남성" ? "#6C89FF" : "#FE7E91",
                   borderRadius: "10px",
                   fontSize: "12px",
                   padding: "3px 5px",
@@ -90,7 +90,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                 }}
               >
                 <span style={{ padding: "1px" }}>
-                  {gender === "male" ? "♂" : "♀"}
+                  {gender === "남성" ? "♂" : "♀"}
                 </span>
                 <div style={{ marginLeft: "5px" }}>{age}</div>
               </div>

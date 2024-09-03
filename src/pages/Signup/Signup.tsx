@@ -1,55 +1,64 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import left_arrow from "../../assets/img/left_arrow.svg";
 import Language, { LanguageOption } from "./components/Language";
-import Nation, { NationOption } from "./components/Nation";
+import Nation, { HometownOption } from "./components/Nation";
 import Name from "./components/Name";
-import StudentId from "./components/StudentId";
+import StudentIdCard from "./components/StudentIdCard";
 import StudentInfo from "./components/StudentInfo";
 import Gender from "./components/Gender";
 import Birth from "./components/Birth";
 import SignupComplete from "./components/SignupComplete";
 import styles from "./Signup.module.css";
 import useSignupStore from "../../stores/useSignupStore";
+import { useLocation, useNavigate } from "react-router-dom";
 export type Step =
   | "Language"
   | "Nation"
   | "Name"
-  | "StudentId"
+  | "StudentIdCard"
   | "StudentInfo"
   | "Gender"
   | "Birth"
   | "SignupComplete";
 
+export interface StudentInfoOption {
+  major: string;
+  studentId: string;
+}
+
 const submitSignupData = (): {
-  appLanguage: LanguageOption | null;
-  studyLanguageFirst: LanguageOption | null;
-  studyLanguageSecond: LanguageOption | null;
-  nation: NationOption | null;
+  setLanguage: string | null;
+  firstLanguage: string | null;
+  secondLanguage: string | null;
+  hometown: string | null;
   name: string | null;
-  studentInfo: string | null;
+  studentId: string | null;
+  department: string | null;
   gender: string | null;
-  birth: string | null;
+  birthday: string | null;
 } => {
   const {
-    appLanguage,
-    studyLanguageFirst,
-    studyLanguageSecond,
-    nation,
+    setLanguage,
+    firstLanguage,
+    secondLanguage,
+    hometown,
     name,
-    studentInfo,
+    department,
+    studentId,
     gender,
-    birth,
+    birthday,
   } = useSignupStore.getState();
 
   return {
-    appLanguage,
-    studyLanguageFirst,
-    studyLanguageSecond,
-    nation,
-    name,
-    studentInfo,
-    gender,
-    birth,
+    setLanguage: setLanguage ? setLanguage.value : null,
+    firstLanguage: firstLanguage ? firstLanguage.value : null,
+    secondLanguage: secondLanguage ? secondLanguage.value : null,
+    hometown: hometown ? hometown.value : null,
+    name: name,
+    studentId: studentId,
+    department: department,
+    gender: gender,
+    birthday: birthday,
   };
 };
 
@@ -57,10 +66,17 @@ const handleSubmit = async () => {
   const signupData = submitSignupData();
 
   try {
-    const response = await fetch("https://kuchat.site/member/signup", {
+    const token = localStorage.getItem("guest-token");
+    if (!token) {
+      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
+      window.location.href = "/login"; // 로그인 페이지로 이동
+      return;
+    }
+    const response = await fetch("https://www.kuchat.site/member/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`, // 여기서 토큰이 포함되어야 합니다.
       },
       body: JSON.stringify(signupData),
     });
@@ -80,22 +96,35 @@ const handleSubmit = async () => {
 
 const Signup = () => {
   const [step, setStep] = useState<Step>("Language");
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  // useEffect를 사용해 컴포넌트가 마운트될 때 쿼리 파라미터에서 토큰을 추출하고 저장
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const token = searchParams.get("guest-token"); // 'token'은 쿼리 파라미터의 키 이름
+
+    if (token) {
+      localStorage.setItem("guest-token", token); // 토큰을 로컬 스토리지에 저장
+      console.log("Token saved:", token);
+      navigate("/signup");
+    }
+  }, [location.search]);
   const handleLanguageConfirm = (
-    appLanguage: LanguageOption,
-    studyLanguageFirst: LanguageOption,
-    studyLanguageSecond: LanguageOption,
+    setLanguage: LanguageOption,
+    firstLanguage: LanguageOption,
+    secondLanguage: LanguageOption,
   ) => {
     useSignupStore.setState({
-      appLanguage: appLanguage,
-      studyLanguageFirst: studyLanguageFirst,
-      studyLanguageSecond: studyLanguageSecond,
+      setLanguage: setLanguage,
+      firstLanguage: firstLanguage,
+      secondLanguage: secondLanguage,
     });
     setStep("Nation");
   };
 
-  const handleNationConfirm = (nation: NationOption) => {
-    useSignupStore.setState({ nation: nation });
+  const handleNationConfirm = (hometown: HometownOption) => {
+    useSignupStore.setState({ hometown: hometown });
     setStep("Name");
   };
 
@@ -104,8 +133,8 @@ const Signup = () => {
     setStep("StudentInfo");
   };
 
-  const handleStudentInfoConfirm = (studentInfo: string) => {
-    useSignupStore.setState({ studentInfo: studentInfo });
+  const handleStudentInfoConfirm = (department: string, studentId: string) => {
+    useSignupStore.setState({ department: department, studentId: studentId });
     setStep("Gender");
   };
 
@@ -114,8 +143,8 @@ const Signup = () => {
     setStep("Birth");
   };
 
-  const handleBirthConfirm = (birth: string) => {
-    useSignupStore.setState({ birth: birth });
+  const handleBirthConfirm = (birthday: string) => {
+    useSignupStore.setState({ birthday: birthday });
     handleSubmit();
     setStep("SignupComplete");
   };
@@ -124,7 +153,7 @@ const Signup = () => {
     Language: <Language onConfirm={handleLanguageConfirm} />,
     Nation: <Nation onConfirm={handleNationConfirm} />,
     Name: <Name onConfirm={handleNameConfirm} />,
-    StudentId: <StudentId />,
+    StudentIdCard: <StudentIdCard />,
     StudentInfo: <StudentInfo onConfirm={handleStudentInfoConfirm} />,
     Gender: <Gender onConfirm={handleGenderConfirm} />,
     Birth: <Birth onConfirm={handleBirthConfirm} />,
@@ -143,10 +172,10 @@ const Signup = () => {
       setStep("Language");
     } else if (step === "Name") {
       setStep("Nation");
-    } else if (step === "StudentId") {
+    } else if (step === "StudentIdCard") {
       setStep("Name");
     } else if (step === "StudentInfo") {
-      setStep("StudentId");
+      setStep("StudentIdCard");
     } else if (step === "Gender") {
       setStep("StudentInfo");
     } else if (step === "Birth") {

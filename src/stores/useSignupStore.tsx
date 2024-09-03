@@ -1,42 +1,46 @@
 import { create } from "zustand";
 import { LanguageOption } from "../pages/Signup/components/Language";
-import { NationOption } from "../pages/Signup/components/Nation";
+import { HometownOption } from "../pages/Signup/components/Nation";
 
 interface SignupState {
-  appLanguage: LanguageOption | null;
-  studyLanguageFirst: LanguageOption | null;
-  studyLanguageSecond: LanguageOption | null;
-  nation: NationOption | null;
+  setLanguage: LanguageOption | null;
+  firstLanguage: LanguageOption | null;
+  secondLanguage: LanguageOption | null;
+  hometown: HometownOption | null;
   name: string | null;
-  studentInfo: string | null;
+  department: string | null;
+  studentId: string | null;
   gender: string | null;
-  birth: string | null;
+  birthday: string | null;
   setAppLanguage: (language: LanguageOption) => void;
   setStudyLanguageFirst: (language: LanguageOption) => void;
   setStudyLanguageSecond: (language: LanguageOption) => void;
-  setNation: (nation: NationOption) => void;
+  setNation: (nation: HometownOption) => void;
   setName: (name: string) => void;
-  setStudentInfo: (studentInfo: string) => void;
+  setDepartment: (department: string) => void;
+  setStudentId: (studentId: string) => void;
   setGender: (gender: string) => void;
-  setBirth: (birth: string) => void;
+  setBirthday: (birth: string) => void;
 }
 
 const useSignupStore = create<SignupState>((set) => ({
-  appLanguage: null,
-  studyLanguageFirst: null,
-  studyLanguageSecond: null,
-  nation: null,
+  setLanguage: null,
+  firstLanguage: null,
+  secondLanguage: null,
+  hometown: null,
   name: null,
-  studentInfo: null,
+  department: null,
+  studentId: null,
   gender: null,
-  birth: null,
-  setAppLanguage: (language) => set({ appLanguage: language }),
-  setStudyLanguageFirst: (language) => set({ studyLanguageFirst: language }),
-  setStudyLanguageSecond: (language) => set({ studyLanguageSecond: language }),
-  setNation: (nation) => set({ nation: nation }),
+  birthday: null,
+  setAppLanguage: (language) => set({ setLanguage: language }),
+  setStudyLanguageFirst: (language) => set({ firstLanguage: language }),
+  setStudyLanguageSecond: (language) => set({ secondLanguage: language }),
+  setNation: (hometown) => set({ hometown: hometown }),
   setName: (name) => set({ name: name }),
-  setStudentInfo: (studentInfo) => set({ studentInfo: studentInfo }),
+  setDepartment: (department) => set({ department: department }),
+  setStudentId: (studentId) => set({ studentId: studentId }),
   setGender: (gender) => set({ gender: gender }),
-  setBirth: (birth) => set({ birth: birth }),
+  setBirthday: (birthday) => set({ birthday: birthday }),
 }));
 export default useSignupStore;

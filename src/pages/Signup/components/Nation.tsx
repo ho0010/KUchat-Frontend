@@ -3,16 +3,16 @@ import SignupTitle from "./SignupTitle";
 import SignupSelectbox from "./SignupSelectbox";
 import SignupConfirmButton from "./SignupConfirmBotton";
 
-export interface NationOption {
+export interface HometownOption {
   value: string;
   label: string;
 }
 
-interface NationProps {
-  onConfirm: (selectedNation: NationOption) => void;
+interface HometownProps {
+  onConfirm: (selectedNation: HometownOption) => void;
 }
 
-const Nations: NationOption[] = [
+const Nations: HometownOption[] = [
   { value: "대한민국", label: "대한민국" },
   { value: "미국", label: "미국" },
   { value: "베트남", label: "베트남" },
@@ -24,18 +24,18 @@ const Nations: NationOption[] = [
   { value: "기타국가", label: "기타국가" },
 ];
 
-const Nation: React.FC<NationProps> = ({ onConfirm }) => {
-  const [selectedNation, setSelectedNation] = useState<NationOption>(
+const Nation: React.FC<HometownProps> = ({ onConfirm }) => {
+  const [selectedHometown, setSelectedHometown] = useState<HometownOption>(
     Nations[0],
   );
 
-  const handleNationChange = (option: NationOption | null) => {
+  const handleHometownChange = (option: HometownOption | null) => {
     if (option === null) return;
-    setSelectedNation(option);
+    setSelectedHometown(option);
   };
 
   const handleConfirm = () => {
-    onConfirm(selectedNation);
+    onConfirm(selectedHometown);
   };
 
   return (
@@ -44,13 +44,13 @@ const Nation: React.FC<NationProps> = ({ onConfirm }) => {
 
       <SignupSelectbox
         options={Nations}
-        value={selectedNation}
-        onChange={handleNationChange}
+        value={selectedHometown}
+        onChange={handleHometownChange}
       />
 
       <SignupConfirmButton
         onClick={handleConfirm}
-        isEnabled={selectedNation !== null}
+        isEnabled={selectedHometown !== null}
         text="확인"
       ></SignupConfirmButton>
     </div>

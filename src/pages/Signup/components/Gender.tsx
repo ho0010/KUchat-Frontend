@@ -26,15 +26,15 @@ const Gender: React.FC<GenderProps> = ({ onConfirm }) => {
         }}
       >
         <button
-          onClick={() => handleGenderSelect("male")}
+          onClick={() => handleGenderSelect("남성")}
           style={{
             padding: "10px 20px",
             fontSize: "16px",
             cursor: "pointer",
             border: "1px solid",
-            borderColor: selectedGender === "male" ? "#046B40" : "#d9d9d9",
+            borderColor: selectedGender === "남성" ? "#046B40" : "#d9d9d9",
             backgroundColor:
-              selectedGender === "male" ? "#d4f4d9" : "transparent",
+              selectedGender === "남성" ? "#d4f4d9" : "transparent",
             borderRadius: "16px",
             width: "120px",
           }}
@@ -43,15 +43,15 @@ const Gender: React.FC<GenderProps> = ({ onConfirm }) => {
         </button>
         <div style={{ width: "40px" }}></div>
         <button
-          onClick={() => handleGenderSelect("female")}
+          onClick={() => handleGenderSelect("여성")}
           style={{
             padding: "10px 20px",
             fontSize: "16px",
             cursor: "pointer",
             border: "1px solid",
-            borderColor: selectedGender === "female" ? "#046B40" : "#d9d9d9",
+            borderColor: selectedGender === "여성" ? "#046B40" : "#d9d9d9",
             backgroundColor:
-              selectedGender === "female" ? "#d4f4d9" : "transparent",
+              selectedGender === "여성" ? "#d4f4d9" : "transparent",
             borderRadius: "16px",
             width: "120px",
           }}

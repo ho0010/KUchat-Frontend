@@ -16,6 +16,7 @@ function Login() {
     window.location.href =
       "https://www.kuchat.site/oauth2/authorization/google";
   };
+
   return showSplash ? (
     <Splash />
   ) : (
@@ -25,7 +26,7 @@ function Login() {
         <div className={styles.splashText}>KU chat</div>
         <button className={styles.googleBtn} onClick={handleClick}>
           <img src={GoogleImg} alt="Google logo" />
-          <div className={styles.googleText}>start with Google</div>
+          <div className={styles.googleText}>Start with Google</div>
         </button>
       </div>
     </div>

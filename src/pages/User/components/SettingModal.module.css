@@ -4,7 +4,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,5 +54,67 @@
     padding-bottom: 12px ;
 
   }
-
+  .confirmModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
   
+  .confirmModalContainer {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 300px;
+    width: 60%;
+    margin-bottom: 12vh;
+  }
+  
+  .confirmButtons {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 6px 0 6px;
+  }
+  
+  .confirmButton {
+    padding: 8px 36px;
+    background-color: #046B40;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .cancelButton {
+    padding: 8px 36px;
+    background-color: #9e9e9e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .confirmText {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+  
+  .subText {
+    font-size: 14px;
+    color: #6f6f6f;
+    margin-bottom: 24px;
+  }
+  
+  .KuchatLogo{
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  }

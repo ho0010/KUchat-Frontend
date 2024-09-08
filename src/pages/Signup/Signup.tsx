@@ -69,27 +69,24 @@ const handleSubmit = async () => {
     const token = localStorage.getItem("guest-token");
     if (!token) {
       alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
-      window.location.href = "/login"; // 로그인 페이지로 이동
+      window.location.href = "/login";
       return;
     }
     const response = await fetch("https://www.kuchat.site/member/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // 여기서 토큰이 포함되어야 합니다.
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(signupData),
     });
 
     if (response.ok) {
-      // 성공적으로 전송되었을 때의 처리
       console.log("Signup successful!");
     } else {
-      // 서버에서 에러를 반환했을 때의 처리
       console.error("Signup failed.");
     }
   } catch (error) {
-    // 네트워크 오류 등으로 요청이 실패했을 때의 처리
     console.error("Error:", error);
   }
 };
@@ -99,14 +96,13 @@ const Signup = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // useEffect를 사용해 컴포넌트가 마운트될 때 쿼리 파라미터에서 토큰을 추출하고 저장
+  // 컴포넌트가 마운트시에 쿼리 파라미터에서 토큰을 추출하고 저장
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    const token = searchParams.get("guest-token"); // 'token'은 쿼리 파라미터의 키 이름
+    const token = searchParams.get("guest-token");
 
     if (token) {
       localStorage.setItem("guest-token", token); // 토큰을 로컬 스토리지에 저장
-      console.log("Token saved:", token);
       navigate("/signup");
     }
   }, [location.search]);

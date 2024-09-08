@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import selectedCircle from "../../../assets/img/SelectedCircle.svg";
 import FillSelectedCircle from "../../../assets/img/FillSelectedCircle.svg";
 
@@ -8,15 +8,24 @@ interface Friend {
   selected: boolean;
 }
 
-interface ModalProps {
+export interface ModalProps {
   show: boolean;
   onClose: () => void;
-  friendList: Friend[];
+  friendList?: Friend[];
 }
 
-const Modal: React.FC<ModalProps> = ({ show, onClose, friendList }) => {
-  const [friends, setFriends] = useState(friendList);
+const ChatMakeModal: React.FC<ModalProps> = ({
+  show,
+  onClose,
+  friendList = [],
+}) => {
+  const [friends, setFriends] = useState<Friend[]>([]);
 
+  useEffect(() => {
+    if (friendList) {
+      setFriends(friendList);
+    }
+  }, [friendList]);
   if (!show) {
     return null;
   }
@@ -131,4 +140,4 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, friendList }) => {
   );
 };
 
-export default Modal;
+export default ChatMakeModal;

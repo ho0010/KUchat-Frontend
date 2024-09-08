@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-
-interface ModalProps {
-  show: boolean;
-  onClose: () => void;
-}
+import { ModalProps } from "./ChatMakeModal";
 
 const SearchIdModal: React.FC<ModalProps> = ({ show, onClose }) => {
   if (!show) {

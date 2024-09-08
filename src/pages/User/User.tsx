@@ -10,10 +10,11 @@ import selectedChatImg from "../../assets/img/User_Selected_chat.svg";
 import selectedFriendImg from "../../assets/img/User_Selected_Friend.svg";
 import selectedProfileImg from "../../assets/img/User_Selected_Profile.svg";
 import ChatPlusImg from "../../assets/img/User_Chat_Plus.svg";
-import ProfileSettingImg from "../../assets/img/User_Profile_Setting.svg";
 import ChatMakeModal from "./components/ChatMakeModal";
 import FriendListData from "../../model/FriendList.json";
 import SearchIdModal from "./components/SearchIdModal";
+import SettingModal from "./components/SettingModal";
+import SettingImg from "../../assets/img/User_Profile_Setting.svg";
 
 type UserStep = "chatList" | "friend" | "profile";
 
@@ -21,6 +22,7 @@ const User = () => {
   const [step, setStep] = useState<UserStep>("profile");
   const [makeChatModal, setMakeChatModal] = useState(false);
   const [searchIdModal, setSearchIdModal] = useState(false);
+  const [settingModal, setSettingModal] = useState(false);
 
   return (
     <div className={styles.root}>
@@ -52,8 +54,8 @@ const User = () => {
         {step === "profile" && (
           <div className={styles.detailHeader}>
             <h1>나의 프로필</h1>
-            <button>
-              <img src={ProfileSettingImg} alt="설정" />
+            <button onClick={() => setSettingModal(true)}>
+              <img src={SettingImg} alt="" />
             </button>
           </div>
         )}
@@ -92,6 +94,10 @@ const User = () => {
         show={searchIdModal}
         onClose={() => setSearchIdModal(false)}
       />
+      <SettingModal
+        show={settingModal}
+        onClose={() => setSettingModal(false)}
+      ></SettingModal>
     </div>
   );
 };
